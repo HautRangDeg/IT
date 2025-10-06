@@ -15,21 +15,22 @@ Vagrant.configure("2") do |config|
   config.vm.hostname = "alpine-RT"
   config.vm.network "public_network", ip: "192.168.1.10"
   config.vm.provision "shell", inline: <<-SHELL
-	echo "root:poseidon" | chpasswd
+	echo "root:password" | chpasswd
 	setup-keymap fr fr
 	setup-dns 8.8.8.8
 	setup-timezone -z Europe/Paris
 	setup-apkrepos -1
 	setup-sshd -c openssh
 	setup-ntp -c chrony
-	adduser -D alice
-        echo "alice:poseidon" | chpasswd
+	adduser -D user
+        echo "user:password" | chpasswd
   SHELL
    
   config.vm.provider "virtualbox" do |vb|
-      vb.memory = "512"
+     vb.memory = "512"
      vb.cpus = 1
      vb.name = "alpine 3.19"
   end
   
 end
+
