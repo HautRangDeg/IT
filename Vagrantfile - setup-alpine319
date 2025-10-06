@@ -23,7 +23,7 @@ Vagrant.configure("2") do |config|
 	setup-sshd -c openssh
 	setup-ntp -c chrony
 	adduser -D user
-        echo "user:password" | chpasswd
+	echo "user:password" | chpasswd
   SHELL
    
   config.vm.provider "virtualbox" do |vb|
@@ -33,4 +33,5 @@ Vagrant.configure("2") do |config|
   end
   
 end
+
 
