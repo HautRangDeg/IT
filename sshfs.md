@@ -37,7 +37,9 @@ _Le File System de SSH, expliqué pour pouvoir monter des partages réseaux adho
     -   <details>
         <summary><strong>Sous Linux</strong>
         </summary>    
-
+        Installation classique sous repo apt
+                >`sudo apt update`
+                >`sudo apt install sshfs`
         </details>
 
     </details>
