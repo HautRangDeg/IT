@@ -64,6 +64,12 @@ _Le File System de SSH, expliqué pour pouvoir monter des partages réseaux adho
             Dans l'explorer, clique droit sur ![Ce_PC](images/ce_pc.png)
 
             Puis, ![Drive](images/connect_drive.png)
+
+            Et enfin renseigner le chemin du montage, avec le nom de l'utilisateur de connexion et la machine cible (IP ou DNS):
+
+            ![Chemin](images/chemin.png)
+
+            Pour les subtilités de l'appel ~~non pas du 18 juin, ni celui de la forêt,~~ mais du chemin, cf. infra.
             
             </details>   
 
