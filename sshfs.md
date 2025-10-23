@@ -90,7 +90,7 @@ _Le File System de SSH, expliqué pour pouvoir monter des partages réseaux adho
                 <details>
                 <summary><strong>Démonter le volume</strong>
                 </summary>
-                ```powershell
+                ```
                 PS C:\Users\user> net use X: /delete
                 ```
                 </details>
