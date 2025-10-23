@@ -89,7 +89,7 @@ _Le File System de SSH, expliqué pour pouvoir monter des partages réseaux adho
             Il est possible de gérer la connexion par clés SSH, comme pour une connexion SSH classique.
 
             En se connectant à une machine Linux, le répertoire de référence est celui de l'utilisateur de connexion. Donc pour se connecter à la racine d'un OS Linux, il faut préciser:
-            `net use X: \\sshfs\user@0.0.0.0\..\..\`. On remonte ainsi de `/user` à `/home` et de `/home` à `/ `.
+            `net use X: \\sshfs\user@0.0.0.0\..\..`. On remonte ainsi de `/user` à `/home` et de `/home` à `/ `.
                 <details>
                 <summary><strong>Démonter le volume</strong>
                 </summary>
@@ -121,7 +121,7 @@ _Le File System de SSH, expliqué pour pouvoir monter des partages réseaux adho
 
         NB3: Le répertoire de référence d'une connexion SSHFS est comme celui d'une connexion SSHFS: le répertoire de l'utilisateur.
         Ainsi, pour pouvoir monter toute l'arborescence d'un OS Linux, il faut préciser le chemin de connexion suivant:
-        `user@0.0.0.0:/../../`. On remonte ainsi de `/user` à `/home` et de `/home` à `/ `.
+        `user@0.0.0.0:/../..`. On remonte ainsi de `/user` à `/home` et de `/home` à `/ `.
 
         </details>
     
