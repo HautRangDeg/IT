@@ -61,7 +61,7 @@ _Le File System de SSH, expliqué pour pouvoir monter des partages réseaux adho
             <br>
             <p>
             Il est possible de faire le montage en interface graphique.
-            Dans l'explorer, clique droit sur ![Ce PC](C:\Users\tartu\Pictures\Screenshots\ce_pc.png),
+            Dans l'explorer, clique droit sur ![Ce PC](images/ce_pc.png),
             </p>
             </details>   
 
