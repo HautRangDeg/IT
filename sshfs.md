@@ -91,12 +91,11 @@ _Le File System de SSH, expliqué pour pouvoir monter des partages réseaux adho
             <br>
             <details>
             <summary><strong>Démonter le volume</strong>
+            </summary>
             ```powershell
             net use X: /delete
             ```
-            </summary>    
-
-        </details>
+            </details>
 
     -   <details>
         <summary><strong>Sous Linux</strong>
