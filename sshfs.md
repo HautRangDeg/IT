@@ -10,7 +10,7 @@ _Le File System de SSH, expliqué pour pouvoir monter des partages réseaux adho
     <summary><strong>Résumé</strong>
     </summary>
 
-    SSH-FS utilise SFTP, lui-même basé sur SSH. L'idée ici est de monté un lecteur réseau adhoc pour pouvoir travailler sur le répertoire d'une machine distante.
+    SSH-FS utilise SFTP, lui-même basé sur SSH. L'idée ici est de monter un lecteur réseau adhoc, pour pouvoir travailler sur l'arborescence d'une machine distante.
 
     </details>
 
@@ -61,7 +61,7 @@ _Le File System de SSH, expliqué pour pouvoir monter des partages réseaux adho
             
             Il est possible de faire le montage en interface graphique.
 
-            Dans l'explorer, clique droit sur ![Ce_PC](images/ce_pc.png)
+            Dans l'Explorer, clique droit sur ![Ce_PC](images/ce_pc.png)
 
             Puis, ![Drive](images/connect_drive.png)
 
@@ -122,8 +122,16 @@ _Le File System de SSH, expliqué pour pouvoir monter des partages réseaux adho
         NB3: Le répertoire de référence d'une connexion SSHFS est comme celui d'une connexion SSHFS: le répertoire de l'utilisateur.
         Ainsi, pour pouvoir monter toute l'arborescence d'un OS Linux, il faut préciser le chemin de connexion suivant:
         `user@0.0.0.0:/../..`. On remonte ainsi de `/user` à `/home` et de `/home` à `/ `.
+            <details>
+            <summary><strong>Démonter le volume</strong>
+            </summary>
+            ```
+            umount /mnt/point/de/montage
+            ```
+            </details>
 
         </details>
-    
+
+            
     
     </details>
