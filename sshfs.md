@@ -13,3 +13,40 @@ _Le File System de SSH, expliqué pour pouvoir monter des partages réseaux adho
     SSH-FS utilise SFTP, lui-même basé sur SSH. L'idée ici est de monté un lecteur réseau adhoc pour pouvoir travailler sur le répertoire d'une machine distante.
 
     </details>
+
+-   <details>
+    <summary><strong>Installation</strong>
+    </summary>
+
+    -   <details>
+        <summary><strong>Sous Windows</strong>
+        </summary>    
+
+        </details>
+
+    -   <details>
+        <summary><strong>Sous Linux</strong>
+        </summary>    
+
+        </details>
+
+    </details>
+
+-   <details>
+    <summary><strong>Montage du volume</strong>
+    </summary>    
+
+    -   <details>
+        <summary><strong>Sous Windows</strong>
+        </summary>    
+
+        </details>
+
+    -   <details>
+        <summary><strong>Sous Linux</strong>
+        </summary>    
+
+        </details>
+    
+    
+    </details>
