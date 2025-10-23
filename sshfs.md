@@ -86,15 +86,14 @@ _Le File System de SSH, expliqué pour pouvoir monter des partages réseaux adho
 
             L'option `/user:` est optionnelle, elle évite de retaper le login de connexion qui sera demandé par la suite.
 
-            Il est possible de gérer la connexion par clés SSH, comme pour une connexion SSH classique.                
-            </details>
-            <br>
-            <details>
-            <summary><strong>Démonter le volume</strong>
-            </summary>
-            ```powershell
-            net use X: /delete
-            ```
+            Il est possible de gérer la connexion par clés SSH, comme pour une connexion SSH classique.
+                <details>
+                <summary><strong>Démonter le volume</strong>
+                </summary>
+                ```powershell
+                net use X: /delete
+                ```
+                </details>
             </details>
 
     -   <details>
