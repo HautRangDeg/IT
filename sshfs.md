@@ -87,6 +87,9 @@ _Le File System de SSH, expliqué pour pouvoir monter des partages réseaux adho
             L'option `/user:` est optionnelle, elle évite de retaper le login de connexion qui sera demandé par la suite.
 
             Il est possible de gérer la connexion par clés SSH, comme pour une connexion SSH classique.
+
+            En se connectant à une machine Linux, le répertoire de référence est celui de l'utilisateur de connexion. Donc pour se connecter à la racine d'un OS Linux, il faut préciser:
+            `net use X: \\sshfs\bob@0.0.0.0\..\..\`
                 <details>
                 <summary><strong>Démonter le volume</strong>
                 </summary>
@@ -106,9 +109,19 @@ _Le File System de SSH, expliqué pour pouvoir monter des partages réseaux adho
         sshfs user@0.0.0.0:/dossier/cible /mnt/dossier/de/travail
         ```
 
-        Détails: après avoir précisé la commande `sshfs` on indique la connexion distante, à savoir: l'utilisateur de connexion, l'hôte et l'arborescence cible. Puis en dernier argument, le montage local d'où est lancé la commande.
+        Détails: après avoir précisé la commande `sshfs`, on indique la connexion distante, à savoir:
+        
+        L'utilisateur de connexion, l'hôte et l'arborescence cible.
+        
+        Puis en dernier argument, le montage local d'où est lancé la commande.
 
-        NB: Sur un système linux, le dossier racine `/mnt` est dédié aux points de montage
+        NB1: Sur un système Linux, le dossier racine `/mnt` est dédié aux points de montage.
+
+        NB2: Le dossier cible doit être exécutable pour voir son contenu visible par SSHFS (mais pas spécialement son contenu)
+
+        NB3: Le répertoire de référence d'une connexion SSHFS est comme celui d'une connexion SSHFS: le répertoire de l'utilisateur.
+        Ainsi, pour pouvoir monter toute l'arborescence d'un OS Linux, il faut préciser le chemin de connexion suivant:
+        `user@0.0.0.0:/../../`
 
         </details>
     
