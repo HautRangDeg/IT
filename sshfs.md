@@ -69,9 +69,20 @@ _Le File System de SSH, expliqué pour pouvoir monter des partages réseaux adho
 
             ![Chemin](images/chemin.png)
 
-            Pour les subtilités de l'appel ~~non pas du 18 juin, ni celui de la forêt,~~ mais du chemin, cf. infra.
+            Pour les subtilités de l'appel ~~non pas du 18 juin, ni celui de la forêt, ou encore du râteau~~ mais du chemin, cf. infra.
             
-            </details>   
+            </details>
+
+        -   <details>
+            <summary><strong>Par PowerShell</strong>
+
+            L'outil `net use` est ton ami:
+            ```powershell
+            net use X: \\sshfs\bob@0.0.0.0\..\..\etc /user:bob
+            ```
+
+
+            </summary>   
 
             
         
