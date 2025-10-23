@@ -88,6 +88,15 @@ _Le File System de SSH, expliqué pour pouvoir monter des partages réseaux adho
 
             Il est possible de gérer la connexion par clés SSH, comme pour une connexion SSH classique.                
             </details>
+            <br>
+            <details>
+            <summary><strong>Démonter le volume</strong>
+            ```powershell
+            net use X: /delete
+            ```
+            </summary>    
+
+        </details>
 
     -   <details>
         <summary><strong>Sous Linux</strong>
