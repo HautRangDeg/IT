@@ -60,10 +60,10 @@ _Le File System de SSH, expliqué pour pouvoir monter des partages réseaux adho
             </summary>       
             <br>
             Il est possible de faire le montage en interface graphique.
-            Dans l'explorer, clique droit sur ![Ce PC](images/ce_pc.png),
+            Dans l'explorer, clique droit sur ![Ce_PC](images/ce_pc.png)
             </details>   
 
-
+    ![Ce_PC](images/ce_pc.png)
         
         </details>
 
