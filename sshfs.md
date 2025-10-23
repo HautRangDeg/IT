@@ -98,7 +98,17 @@ _Le File System de SSH, expliqué pour pouvoir monter des partages réseaux adho
 
     -   <details>
         <summary><strong>Sous Linux</strong>
-        </summary>    
+        </summary>
+
+        Une syntaxe très similaire à OpenSSH:
+        
+        ```bash
+        sshfs user@0.0.0.0:/dossier/cible /mnt/dossier/de/travail
+        ```
+
+        Détails: après avoir précisé la commande `sshfs` on indique la connexion distante, à savoir: l'utilisateur de connexion, l'hôte et l'arborescence cible. Puis en dernier argument, le montage local d'où est lancé la commande.
+
+        NB: Sur un système linux, le dossier racine `/mnt` est dédié aux points de montage
 
         </details>
     
