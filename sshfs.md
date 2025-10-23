@@ -69,6 +69,8 @@ _Le File System de SSH, expliqué pour pouvoir monter des partages réseaux adho
 
             ![Chemin](images/chemin.png)
 
+            Une fenêtre de connexion s'affichera pour renseigner les identifiants.
+
             Pour les subtilités de l'appel ~~non pas du 18 juin, ni celui de la forêt, ou encore du râteau~~ mais du chemin, cf. infra.
             
             </details>
@@ -80,7 +82,11 @@ _Le File System de SSH, expliqué pour pouvoir monter des partages réseaux adho
             L'outil `net use` est ton ami:
             ```powershell
             net use X: \\sshfs\bob@0.0.0.0\..\..\etc /user:bob
-            ```                   
+            ```
+
+            L'option `/user:` est optionnelle, elle évite de retaper le login de connexion qui sera demandé par la suite.
+
+            Il est possible de gérer la connexion par clés SSH, comme pour une connexion SSH classique.                
             </details>
 
     -   <details>
