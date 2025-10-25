@@ -1,0 +1,81 @@
+#!/bin/sh
+#
+# An example hook script to prepare the commit log message.
+# Called by "git commit" with the name of the file that has the
+# commit message, followed by the description of the commit
+# message's source.  The hook's purpose is to edit the commit
+# message file.  If the hook fails with a non-zero status,
+# the commit is aborted.
+#
+# To enable this hook, rename this file to "prepare-commit-msg".
+
+# This hook includes three examples. The first one removes the
+# "# Please enter the commit message..." help message.
+#
+# The second includes the output of "git diff --name-status -r"
+# into the message, just before the "git status" output.  It is
+# commented because it doesn't cope with --amend or with squashed
+# commits.
+#
+# The third example adds a Signed-off-by line to the message, that can
+# still be edited.  This is rarely a good idea.
+
+COMMIT_MSG_FILE=$1
+COMMIT_SOURCE=$2
+SHA1=$3
+
+{
+  echo "# Editer ici les lignes du message à commiter."
+  echo "# Toutes les lignes non commentées feront parties du message."
+  echo "# Seule la première ligne du message apparaît en clair."
+  echo "# Si aucune ligne n'est décommentée, alors le commit sera annulé."
+  echo ""
+ } > "$COMMIT_MSG_FILE"
+
+files=$(git status --porcelain)
+num_files=$(echo "$files" | wc -l)
+
+# Pré-remplir le message si au moins un fichier
+if [ "$num_files" -gt 0 ]; then
+  echo "" >> "$COMMIT_MSG_FILE"
+
+  # Si plus d’un fichier, ajouter une ligne "X files changed"
+  if [ "$num_files" -gt 1 ]; then
+    echo "$num_files fichiers changés:" >> "$COMMIT_MSG_FILE"
+  fi
+
+  # Ajouter chaque fichier avec son statut lisible
+  echo "$files" | while read line; do
+    XY="${line:0:2}"
+    file="${line:3}"
+    case "$XY" in
+      M*|*M) echo "modifié: $file" >> "$COMMIT_MSG_FILE" ;;
+      A*|*A) echo "ajouté: $file" >> "$COMMIT_MSG_FILE" ;;
+      D*|*D) echo "supprimé: $file" >> "$COMMIT_MSG_FILE" ;;
+      R*|*R) echo "renommé: $file" >> "$COMMIT_MSG_FILE" ;;
+      C*|*C) echo "copié: $file" >> "$COMMIT_MSG_FILE" ;;
+      U*|*U) echo "unmerged: $file" >> "$COMMIT_MSG_FILE" ;;
+      '??') echo "untracked: $file" >> "$COMMIT_MSG_FILE" ;;
+      '!!') echo "ignoré: $file" >> "$COMMIT_MSG_FILE" ;;
+      *) echo "autre: $file" >> "$COMMIT_MSG_FILE" ;;
+    esac
+  done
+fi
+
+
+#/usr/bin/perl -i.bak -ne 'print unless(m/^. Please enter the commit message/..m/^#$/)' "$COMMIT_MSG_FILE"
+
+# case "$COMMIT_SOURCE,$SHA1" in
+#  ,|template,)
+#    /usr/bin/perl -i.bak -pe '
+#       print "\n" . `git diff --cached --name-status -r`
+# 	 if /^#/ && $first++ == 0' "$COMMIT_MSG_FILE" ;;
+#  *) ;;
+# esac
+
+# SOB=$(git var GIT_COMMITTER_IDENT | sed -n 's/^\(.*>\).*$/Signed-off-by: \1/p')
+# git interpret-trailers --in-place --trailer "$SOB" "$COMMIT_MSG_FILE"
+# if test -z "$COMMIT_SOURCE"
+# then
+#   /usr/bin/perl -i.bak -pe 'print "\n" if !$first_line++' "$COMMIT_MSG_FILE"
+# fi
