@@ -1,0 +1,37 @@
+# pré-requis:
+# vagrant plugin install vagrant-vbguest
+# vagrant plugin install vagrant-disksize
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "generic/alpine319"
+  config.vm.box_version = "4.3.12"
+
+  #Désactivation de l'auto update du Guest Additions de VirtualBox, qui fait planter la machine alpine par Vagrant:
+  config.vbguest.auto_update = false if Vagrant.has_plugin?("vagrant-vbguest")
+  #Les dossiers partagés guest-host sont désactivés par la commande précédente, il faut donc forcer la synchronisation:
+  config.vm.synced_folder ".", "/vagrant", type: "rsync"
+
+  #Setup alpine (équivalent manuel de setup-alpine)
+  config.vm.hostname = "alpine-RT"
+  config.vm.network "public_network", ip: "192.168.1.10"
+  config.vm.provision "shell", inline: <<-SHELL
+	echo "root:password" | chpasswd
+	setup-keymap fr fr
+	setup-dns 8.8.8.8
+	setup-timezone -z Europe/Paris
+	setup-apkrepos -1
+	setup-sshd -c openssh
+	setup-ntp -c chrony
+	adduser -D user
+	echo "user:password" | chpasswd
+  SHELL
+   
+  config.vm.provider "virtualbox" do |vb|
+     vb.memory = "512"
+     vb.cpus = 1
+     vb.name = "alpine 3.19"
+  end
+  
+end
+
+
